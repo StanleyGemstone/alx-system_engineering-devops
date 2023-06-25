@@ -1,3 +1,14 @@
 #!/usr/bin/env bash
 # Creates an RSA key pair
-ssh-keygen -t rsa -N betty -f school -b 4096 
+
+KEY_NAME="school"
+BITS=4096
+PASSPHRASE="betty"
+
+# Generate the RSA key pair
+ssh-keygen -t rsa -b "$BITS" -f "$KEY_NAME" -N "$PASSPHRASE"
+
+# Provide user feedback
+echo "RSA key pair generated successfully."
+ls -l "$KEY_NAME" "$KEY_NAME.pub"
+ 
