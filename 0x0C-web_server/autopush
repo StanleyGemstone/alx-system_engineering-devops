@@ -1,7 +1,6 @@
 !#/usr/bin/env bash
 
-cm="Update file"
 git add ..
-git commit -m "$cm"
+git commit -m "Web server task"
 git push
 echo "Successfully pushed changes to git repository"
