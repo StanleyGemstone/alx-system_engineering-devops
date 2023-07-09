@@ -14,6 +14,6 @@ frontend lb
 backend servers
 	mode http
 	balance roundrobin
-	server 221499-web-01 54.152.252.25:80 check
-	server 221499-web-02 3.85.41.101:80 check" >> /etc/haproxy/haproxy.cfg
+	server 221499-web-01 100.25.48.61:80 check
+	server 221499-web-02 52.3.245.122:80 check" >> /etc/haproxy/haproxy.cfg
 	service haproxy restart
