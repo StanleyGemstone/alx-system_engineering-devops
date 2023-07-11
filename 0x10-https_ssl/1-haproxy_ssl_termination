@@ -34,16 +34,15 @@ defaults
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
 
-frontend 221499-web
-    	bind *:80
-    	bind *:443 ssl crt /etc/ssl/www.gemtec.tech/www.gemtec.tech.pem
+frontend www-https
+        bind *:443 ssl crt /etc/ssl/www.gemtec.tech/www.gemtec.tech.pem
+        bind *:80
 
-    	# Redirect if HTTPS is not used
-    	redirect scheme https code 301 if !{ ssl_fc }
+        # Redirect if HTTPS is not used
+         redirect scheme https code 301 if !{ ssl_fc }
+         default_backend www-backend
 
-    	default_backend 221499-web_servers
-
-backend 221499-web_servers
-    	balance roundrobin
-    	server web-01 100.25.48.61:80 check
-    	server web-02 52.3.245.122:80 check
+backend www-backend
+        balance roundrobin
+        server web-01 100.25.48.61:80 check
+        server web-02 52.3.245.122:80 check
