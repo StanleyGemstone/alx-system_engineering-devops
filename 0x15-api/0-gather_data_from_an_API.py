@@ -2,7 +2,7 @@
 """
 accessing a url with employee ID to return information
 """
-import request
+import requests
 from sys import argv
 
 if __name__ == "__main__":
